@@ -1,5 +1,4 @@
-# Stage 1: Build the React application
-FROM node:16 AS build
+FROM node:16
 
 WORKDIR /usr/src/app
 
@@ -9,11 +8,8 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# Stage 2: Serve the React application from Nginx
-FROM nginx:1.21
+# Make port 3000 available for the app
+EXPOSE 3000
 
-COPY --from=build /usr/src/app/build /usr/share/nginx/html
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
+# Start the app
+CMD ["npm", "start"]
