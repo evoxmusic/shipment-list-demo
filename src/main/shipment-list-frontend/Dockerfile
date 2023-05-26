@@ -1,5 +1,8 @@
 FROM node:16
 
+ARG SHIPMENT_API_HOST
+ENV SHIPMENT_API_HOST $SHIPMENT_API_HOST
+
 WORKDIR /usr/src/app
 
 COPY package*.json ./
