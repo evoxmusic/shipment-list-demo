@@ -11,7 +11,7 @@ const Shipments = () => {
   const [refreshKey, setRefreshKey] = useState(0); // hack0: Add refreshKey state to force refresh
 
   const fetchShipments = () => {
-    axios.get(`https://${process.env.SHIPMENT_API_HOST}/api/shipment`).then(res => {
+    axios.get(`https://${process.env.REACT_APP_SHIPMENT_API_HOST}/api/shipment`).then(res => {
       console.log(res);
       setShipments(res.data)
     }).then(() => {
@@ -28,7 +28,7 @@ const Shipments = () => {
   }, [isFetchingComplete]);
 
   function handleRemove(shipmentId) {
-    axios.delete(`https://${process.env.SHIPMENT_API_HOST}/api/shipment/${shipmentId}`)
+    axios.delete(`https://${process.env.REACT_APP_SHIPMENT_API_HOST}/api/shipment/${shipmentId}`)
     .then(res => {
       console.log(res.data)
       const newList = shipments.filter(
@@ -72,7 +72,7 @@ const Shipments = () => {
             }}>
               <div>
                 <Dropzone {...shipment}/>
-                <img src={`https://${process.env.SHIPMENT_API_HOST}/api/shipment/${shipment.shipmentId}/image/download?t=${Date.now()}`} //hack1: cache busting to refresh
+                <img src={`https://${process.env.REACT_APP_SHIPMENT_API_HOST}/api/shipment/${shipment.shipmentId}/image/download?t=${Date.now()}`} //hack1: cache busting to refresh
                      alt={placeholder}
                      style={{objectFit: "contain"}}/>
 
@@ -118,7 +118,7 @@ function Dropzone(
     formData.append("file", file);
 
     axios.post(
-        `https://${process.env.SHIPMENT_API_HOST}/api/shipment/${shipmentId}/image/upload`,
+        `https://${process.env.REACT_APP_SHIPMENT_API_HOST}/api/shipment/${shipmentId}/image/upload`,
         formData,
         {
           headers: {
