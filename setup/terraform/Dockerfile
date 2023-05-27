@@ -10,9 +10,13 @@ RUN pip3 install terraform-local
 #ARG TF_VAR_aws_region
 ARG TF_VAR_aws_access_key_id
 ARG TF_VAR_aws_secret_access_key
+ARG LOCALSTACK_HOSTNAME
+ARG S3_HOSTNAME
 
 ENV AWS_ACCESS_KEY_ID=$TF_VAR_aws_access_key_id
 ENV AWS_SECRET_ACCESS_KEY=$TF_VAR_aws_secret_access_key
+ENV LOCALSTACK_HOSTNAME=$LOCALSTACK_HOSTNAME
+ENV S3_HOSTNAME=$S3_HOSTNAME
 
 ADD . .
 
