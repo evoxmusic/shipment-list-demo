@@ -1,7 +1,7 @@
 variable "env" {
   type        = string
   description = "dev env"
-  default = ""
+  default = "dev"
 }
 
 # need to create TF_VAR_sns_sub_endpoint env var on Qovery
