@@ -70,7 +70,7 @@ resource "aws_lambda_function" "shipment_picture_lambda_validator" {
   role          = aws_iam_role.lambda_exec.arn
   s3_bucket     = aws_s3_bucket.lambda_code_bucket.id
   s3_key        = aws_s3_bucket_object.lambda_code.key
-  memory_size   = 512
+  memory_size   = 256
   timeout       = 60
   environment {
     variables = {
