@@ -1,4 +1,10 @@
-FROM python:3.9-alpine
+FROM hashicorp/terraform:1.3.6
+
+ENV PYTHONUNBUFFERED=1
+RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+RUN python3 -m ensurepip
+RUN pip3 install --no-cache --upgrade pip setuptools
+RUN pip3 install terraform-local
 
 #ARG TF_VAR_terraform_backend_bucket
 #ARG TF_VAR_aws_region
@@ -7,8 +13,6 @@ ARG TF_VAR_aws_secret_access_key
 
 ENV AWS_ACCESS_KEY_ID=$TF_VAR_aws_access_key_id
 ENV AWS_SECRET_ACCESS_KEY=$TF_VAR_aws_secret_access_key
-
-RUN pip install terraform-local
 
 ADD . .
 
