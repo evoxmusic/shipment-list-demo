@@ -16,4 +16,4 @@ WORKDIR /usr/app
 
 COPY --from=build /usr/src/app/target/*.jar app.jar
 
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java","-Dspring.profiles.active=dev","-jar","app.jar"]
