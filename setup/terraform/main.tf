@@ -8,6 +8,11 @@ terraform {
 }
 provider "aws" {
   region = "eu-central-1"
+  endpoints {
+      s3="http://s3.${LOCALSTACK_HOST}:4566/"
+      dynamodb="http://${LOCALSTACK_HOST}:4566/"
+      sqs="http://${LOCALSTACK_HOST}:4566/000000000000"
+  }
 }
 
 # S3 bucket
