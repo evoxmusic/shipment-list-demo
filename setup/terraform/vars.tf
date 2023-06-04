@@ -10,3 +10,9 @@ variable "sns_sub_endpoint" {
   description = "SNS subscriber endpoint"
   default = "https://localhost:8081/sns/notifications"
 }
+
+variable "localstack_hostname" {
+  type        = string
+  description = "Localstack Hostname"
+  default = "http://localhost:4566"
+}
