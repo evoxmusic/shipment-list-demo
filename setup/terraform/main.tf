@@ -89,7 +89,7 @@ resource "aws_s3_bucket" "lambda_code_bucket" {
 
 # Lambda source code
 resource "aws_s3_bucket_object" "lambda_code" {
-  source = "../../shipment-picture-lambda-validator/target/shipment-picture-lambda-validator.jar"
+  source = "shipment-picture-lambda-validator.jar"
   bucket = aws_s3_bucket.lambda_code_bucket.id
   key    = "shipment-picture-lambda-validator.jar"
 }
