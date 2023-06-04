@@ -20,7 +20,7 @@ ENV S3_HOSTNAME=$S3_HOSTNAME
 
 ADD . .
 
-RUN tflocal init 
+RUN terraform init 
 #\
 #-backend-config="bucket=${TF_VAR_terraform_backend_bucket}" \
 #-backend-config="key=${TF_VAR_qovery_environment_id}" \
