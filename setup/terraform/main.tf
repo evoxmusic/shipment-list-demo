@@ -8,10 +8,37 @@ terraform {
 }
 provider "aws" {
   region = "eu-central-1"
+  access_key                  = "test"
+  secret_key                  = "test"
+  s3_use_path_style           = false
+  skip_credentials_validation = true
+  skip_metadata_api_check     = true
+  skip_requesting_account_id  = true
+
   endpoints {
-      s3="http://s3.${LOCALSTACK_HOST}:4566/"
-      dynamodb="http://${LOCALSTACK_HOST}:4566/"
-      sqs="http://${LOCALSTACK_HOST}:4566/000000000000"
+      apigateway     = "http://${LOCALSTACK_HOST}:4566"
+      apigatewayv2   = "http://${LOCALSTACK_HOST}:4566"
+      cloudformation = "http://${LOCALSTACK_HOST}:4566"
+      cloudwatch     = "http://${LOCALSTACK_HOST}:4566"
+      dynamodb       = "http://${LOCALSTACK_HOST}:4566"
+      ec2            = "http://${LOCALSTACK_HOST}:4566"
+      es             = "http://${LOCALSTACK_HOST}:4566"
+      elasticache    = "http://${LOCALSTACK_HOST}:4566"
+      firehose       = "http://${LOCALSTACK_HOST}:4566"
+      iam            = "http://${LOCALSTACK_HOST}:4566"
+      kinesis        = "http://${LOCALSTACK_HOST}:4566"
+      lambda         = "http://${LOCALSTACK_HOST}:4566"
+      rds            = "http://${LOCALSTACK_HOST}:4566"
+      redshift       = "http://${LOCALSTACK_HOST}:4566"
+      route53        = "http://${LOCALSTACK_HOST}:4566"
+      s3             = "http://s3.${LOCALSTACK_HOST}.localstack.cloud:4566"
+      secretsmanager = "http://${LOCALSTACK_HOST}:4566"
+      ses            = "http://${LOCALSTACK_HOST}:4566"
+      sns            = "http://${LOCALSTACK_HOST}:4566"
+      sqs            = "http://${LOCALSTACK_HOST}:4566"
+      ssm            = "http://${LOCALSTACK_HOST}:4566"
+      stepfunctions  = "http://${LOCALSTACK_HOST}:4566"
+      sts            = "http://${LOCALSTACK_HOST}:4566"
   }
 }
 
